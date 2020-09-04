@@ -12,6 +12,8 @@ requests = "*"
 spotipy = "*"
 jupyter = "*"
 scikit-learn = "*"
+pylint = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.6"
