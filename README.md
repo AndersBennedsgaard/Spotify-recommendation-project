@@ -1,4 +1,4 @@
-# Spotify-playlist-project
+# Spotify-recommendation-project
 Just a simple machine learning project to create a new playlist on Spotify according to similarity to favorite songs
 
 Remember to create `ClientCredentials.py` at the root of the project which contains:
