@@ -14,8 +14,8 @@ jupyter = "*"
 scikit-learn = "*"
 pylint = "*"
 flake8 = "*"
-ipykernel = "*"
 matplotlib = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.6"

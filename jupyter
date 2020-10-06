@@ -1,0 +1,7 @@
+#!/bin/bash
+# Because of WSL2 changing the ip adress, making localhost useless
+if [[ -z "VIRTUAL_ENV" ]]; then
+    jupyter notebook --ip $(hostname -I)
+else
+    pipenv run jupyter notebook --ip $(hostname -I)
+fi
