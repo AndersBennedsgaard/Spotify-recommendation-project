@@ -7,3 +7,5 @@ __pycache__/
 
 ClientCredentials.sh
 track_features.csv
+
+tmp/
