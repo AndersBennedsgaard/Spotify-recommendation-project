@@ -2,12 +2,12 @@
 
 dev:
 	mkdir -p tmp
-	pip install --disable-pip-version-check -e .[dev]
+	pip install --user --disable-pip-version-check -e .[dev]
 
 install:
-	pip install --disable-pip-version-check -r requirements.txt
+	pip install --user --disable-pip-version-check -r requirements.txt
 
-requirements.txt: install
+requirements.txt:
 	pipreqs --force
 
 lint:

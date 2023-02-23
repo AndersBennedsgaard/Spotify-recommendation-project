@@ -8,10 +8,14 @@
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": true,
-			"configureZshAsDefaultShell": true,
-			"installOhMyZsh": true
-		}
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true
+    }
+  },
+
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -19,8 +23,9 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "pip3 install --user -r requirements.txt",
-  "postCreateCommand": "pip3 install --user -r requirements.txt",
-  
+  // "postCreateCommand": "pip install --user --disable-pip-version-check -e .[dev]",
+  "postCreateCommand": "make dev",
+
   // Configure tool-specific properties.
   // "customizations": {},
   "customizations": {
