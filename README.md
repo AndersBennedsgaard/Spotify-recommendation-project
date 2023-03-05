@@ -18,3 +18,23 @@ Based on
 * [Making Your Own Spotify Discover Weekly Playlist](https://towardsdatascience.com/making-your-own-discover-weekly-f1ac7546fedb)
 * [Build Your Own Spotify Playlist of Best Playlist Recommendations!](https://medium.com/deep-learning-turkey/build-your-own-spotify-playlist-of-best-playlist-recommendations-fc9ebe92826a)
 * [How to Create Large Music Datasets Using Spotipy](https://towardsdatascience.com/how-to-create-large-music-datasets-using-spotipy-40e7242cc6a6)
+
+## (Future) usage
+
+```sh
+# log in using environment variables / browser?
+sr login
+
+# analyse a playlist, show plots, numbers, fancy stuff
+sr analyse <source-playlist>
+
+# generate a new playlist with recommendations based on a source playlist
+# Analyses the playlist if it hasn't been done
+# `--visualize` shows the figures and analytics from `sr analyse`
+sr generate <source-playlist> <new-playlist>
+
+# improves a playlist with tracks from `sr generate`
+# `--force` bypasses the confirmation 
+# `--backup=true` creates a backup of the source playlist
+sr improve <source-playlist>
+```
