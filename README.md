@@ -1,14 +1,15 @@
 # Spotify-recommendation-project
+
 Just a simple machine learning project to create a new playlist on Spotify according to similarity to favorite songs
 
-Remember to create `ClientCredentials.py` at the root of the project which contains:
-```python
-client_id = <CLIENT_ID>
-client_secret = <CLIENT_SECRET>
+Remember to create `.env` at the root of the project which contains:
+
+```bash
+SPOTIPY_CLIENT_ID=<CLIENT_ID>
+SPOTIPY_CLIENT_SECRET=<CLIENT_SECRET>
 ```
 
 Using
-* [Pipenv](https://docs.pipenv.org/)
 * [Spotipy](https://spotipy.readthedocs.io/)
 
 Based on
