@@ -31,7 +31,7 @@ extras_packages = {
 }
 
 setup(
-    name="spotify-recommendations",
+    name="spotirecs",
     version="0.1.0",
     description="Spotify Recommendations",
     author="Anders Bennedsgaard",
@@ -40,8 +40,7 @@ setup(
     license=lic,
     long_description=readme,
     long_description_content_type="text/markdown",
-    packages=find_packages(where="src/"),
-    package_dir={"": "tmp/"},
+    packages=find_packages(where="."),
     install_requires=required_packages,
     extras_require=extras_packages
 )

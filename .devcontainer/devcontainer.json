@@ -14,10 +14,6 @@
     }
   },
 
-  "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
-  },
-
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
 
@@ -30,7 +26,8 @@
   // "customizations": {},
   "customizations": {
     "vscode": {
-      "extensions": ["ms-vscode.makefile-tools"]
+      "extensions": ["ms-vscode.makefile-tools"],
+      "settings": {}
     }
   }
 

@@ -9,3 +9,9 @@ ClientCredentials.sh
 track_features.csv
 
 tmp/
+
+.env
+.envrc
+.cache
+
+*.egg-info
