@@ -40,7 +40,7 @@ setup(
     license=lic,
     long_description=readme,
     long_description_content_type="text/markdown",
-    packages=find_packages(where="."),
+    packages=find_packages(),
     install_requires=required_packages,
     extras_require=extras_packages
 )
