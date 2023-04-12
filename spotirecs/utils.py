@@ -1,9 +1,11 @@
 from typing import TypedDict
+
 import spotipy
 
 
 class Image(TypedDict):
     """Image object"""
+
     height: int
     width: int
     url: str
@@ -11,12 +13,14 @@ class Image(TypedDict):
 
 class TracksSummary(TypedDict):
     """TracksSummary object"""
+
     href: str
     total: int
 
 
 class OwnerSummary(TypedDict):
     """OwnerSummary object"""
+
     display_name: str
     external_urls: dict[str, str]
     href: str
@@ -27,6 +31,7 @@ class OwnerSummary(TypedDict):
 
 class Playlist(TypedDict):
     """Playlist object"""
+
     collaborative: bool
     description: str
     external_urls: dict[str, str]
@@ -45,6 +50,7 @@ class Playlist(TypedDict):
 
 class Playlists(TypedDict):
     """Playlists object"""
+
     href: str
     items: list[Playlist]
     limit: int
@@ -56,6 +62,7 @@ class Playlists(TypedDict):
 
 class AddedBy(TypedDict):
     """Added_by object"""
+
     external_urls: object
     href: str
     id: str
@@ -65,6 +72,7 @@ class AddedBy(TypedDict):
 
 class Artist(TypedDict):
     """Artist object"""
+
     external_urls: object
     href: str
     id: str
@@ -75,6 +83,7 @@ class Artist(TypedDict):
 
 class Album(TypedDict):
     """Album object"""
+
     album_type: str
     artists: list[Artist]
     available_markets: list[str]
@@ -92,6 +101,7 @@ class Album(TypedDict):
 
 class Track(TypedDict):
     """Track object"""
+
     album: Album
     artists: list[Artist]
     available_markets: list[str]
@@ -115,6 +125,7 @@ class Track(TypedDict):
 
 class TrackItem(TypedDict):
     """TrackItem object"""
+
     added_at: str
     added_by: AddedBy
     is_local: bool
@@ -125,6 +136,7 @@ class TrackItem(TypedDict):
 
 class Tracks(TypedDict):
     """Tracks object"""
+
     href: str
     items: list[TrackItem]
     limit: int
@@ -139,15 +151,15 @@ def get_playlist_tracks(spotify: spotipy.Spotify, playlist: Playlist):
     track_ids = []
     track_names = []
 
-    for i in range(0, playlist['tracks']['total'], 100):
+    for i in range(0, playlist["tracks"]["total"], 100):
         track_results: Tracks | None = spotify.user_playlist_tracks(
-            playlist['owner']['id'], playlist['id'], offset=i, limit=100
+            playlist["owner"]["id"], playlist["id"], offset=i, limit=100
         )
         if track_results is None:
             continue
-        for track in track_results['items']:
-            track_ids.append(track['track']['id'])
-            track_names.append(track['track']['name'])
+        for track in track_results["items"]:
+            track_ids.append(track["track"]["id"])
+            track_names.append(track["track"]["name"])
 
     return track_ids, track_names
 
