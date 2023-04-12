@@ -1,5 +1,4 @@
-from setuptools import setup, find_packages
-
+from setuptools import find_packages, setup
 
 with open("README.md", encoding="utf-8") as f:
     readme = f.read()
@@ -18,16 +17,16 @@ required_packages = [
 
 
 extras_packages = {
-    'docs': [],
-    'dev': [
+    "docs": [],
+    "dev": [
         "pylint",
         "pytest",
         "flake8",
         "ipykernel",
         "jupyter",
-        "pipreqs"
-        # "black>=22.0.0",
-    ]
+        "pipreqs",
+        "black",
+    ],
 }
 
 setup(
@@ -42,5 +41,5 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=required_packages,
-    extras_require=extras_packages
+    extras_require=extras_packages,
 )
