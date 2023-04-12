@@ -1,21 +1,22 @@
 .PHONY: requirements.txt
 
 dev:
-	pip install --user --disable-pip-version-check -e .[dev]
+	pip install --disable-pip-version-check -e .[dev]
 
 install:
-	pip install --user --disable-pip-version-check -r requirements.txt
+	pip install --disable-pip-version-check -r requirements.txt
 
-requirements.txt:
+requirements.txt: dev
 	pipreqs --force
 
-lint:
+lint: dev
 	pylint spotirecs/
 
-test:
+test: dev
 	python3 -m pytest tests/ -v
 
 clean:
-	rm analysis/.cache
-	rm analysis/track_features.csv
+	rm -f analysis/.cache
+	rm -f analysis/track_features.csv
 	rm -rf spotirecs/__pycache__
+	rm -rf venv/
