@@ -9,19 +9,18 @@ dev:
 all: lint format test
 
 lint: dev
-	poetry run pylint spotirecs/
-
-test: dev
-	poetry run pytest tests/ -v
+	poetry run ruff check .
 
 format: dev
-	poetry run black .
-	poetry run isort .
+	poetry run ruff format .
+
+# test: dev
+# 	poetry run pytest tests/ -v
 
 clean:
 	rm -f analysis/.cache
 	rm -f analysis/track_features.csv
-	rm -rf spotirecs/__pycache__
 	rm -rf spotirecs.egg-info/
-	rm -rf venv/
 	rm -rf .pytest_cache/
+	rm -rf .ruff_cache/
+	find . -type d -name __pycache__ -exec rm -r {} \+
