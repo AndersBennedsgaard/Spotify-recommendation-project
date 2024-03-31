@@ -1,22 +1,27 @@
-.PHONY: requirements.txt
-
-dev:
-	pip install --disable-pip-version-check -e .[dev]
+.PHONY: install dev all lint test format clean
 
 install:
-	pip install --disable-pip-version-check -r requirements.txt
+	poetry install
 
-requirements.txt: dev
-	pipreqs --force
+dev:
+	poetry install --with dev
+
+all: lint format test
 
 lint: dev
-	pylint spotirecs/
+	poetry run pylint spotirecs/
 
 test: dev
-	python3 -m pytest tests/ -v
+	poetry run pytest tests/ -v
+
+format: dev
+	poetry run black .
+	poetry run isort .
 
 clean:
 	rm -f analysis/.cache
 	rm -f analysis/track_features.csv
 	rm -rf spotirecs/__pycache__
+	rm -rf spotirecs.egg-info/
 	rm -rf venv/
+	rm -rf .pytest_cache/

@@ -1,2 +1,0 @@
-setuptools==65.5.1
-spotipy==2.22.1
