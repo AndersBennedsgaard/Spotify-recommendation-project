@@ -17,15 +17,20 @@ spotipy = "^2.23.0"
 scikit-learn = "^1.4.1.post1"
 matplotlib = "^3.8.3"
 pydantic = "^2.6.4"
+click = "^8.1.7"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
 jupyterlab = "^4.1.5"
 ruff = "^0.3.4"
+python-dotenv = "^1.0.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+sb = 'spotirecs.cmd.cli:main'
 
 # [tool.ruff]
 # extend-include = ["*.ipynb"]

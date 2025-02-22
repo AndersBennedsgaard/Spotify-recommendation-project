@@ -1,22 +1,22 @@
-from typing import TypedDict
+from pydantic import BaseModel
 
 
-class Image(TypedDict):
+class Image(BaseModel):
     """Image object"""
 
-    height: int
-    width: int
+    height: int | None
+    width: int | None
     url: str
 
 
-class TracksSummary(TypedDict):
+class TracksSummary(BaseModel):
     """TracksSummary object"""
 
     href: str
     total: int
 
 
-class OwnerSummary(TypedDict):
+class OwnerSummary(BaseModel):
     """OwnerSummary object"""
 
     display_name: str
@@ -27,7 +27,7 @@ class OwnerSummary(TypedDict):
     uri: str
 
 
-class Playlist(TypedDict):
+class Playlist(BaseModel):
     """Playlist object"""
 
     collaborative: bool
@@ -46,19 +46,19 @@ class Playlist(TypedDict):
     uri: str
 
 
-class Playlists(TypedDict):
+class Playlists(BaseModel):
     """Playlists object"""
 
     href: str
     items: list[Playlist]
     limit: int
-    next: int | None
+    next: int | str | None
     offset: int
     previous: int | None
     total: int
 
 
-class AddedBy(TypedDict):
+class AddedBy(BaseModel):
     """Added_by object"""
 
     external_urls: object
@@ -68,7 +68,7 @@ class AddedBy(TypedDict):
     uri: str
 
 
-class Artist(TypedDict):
+class Artist(BaseModel):
     """Artist object"""
 
     external_urls: object
@@ -79,7 +79,7 @@ class Artist(TypedDict):
     uri: str
 
 
-class Album(TypedDict):
+class Album(BaseModel):
     """Album object"""
 
     album_type: str
@@ -97,7 +97,7 @@ class Album(TypedDict):
     uri: str
 
 
-class Track(TypedDict):
+class Track(BaseModel):
     """Track object"""
 
     album: Album
@@ -114,14 +114,14 @@ class Track(TypedDict):
     is_local: bool
     name: str
     popularity: int
-    preview_url: str
+    preview_url: str | None
     track: bool
     track_number: int
     type: str
     uri: str
 
 
-class TrackItem(TypedDict):
+class TrackItem(BaseModel):
     """TrackItem object"""
 
     added_at: str
@@ -132,13 +132,13 @@ class TrackItem(TypedDict):
     video_thumbnail: object
 
 
-class Tracks(TypedDict):
+class Tracks(BaseModel):
     """Tracks object"""
 
     href: str
     items: list[TrackItem]
     limit: int
-    next: int | None
+    next: int | str | None
     offset: int
     previous: int | None
     total: int
